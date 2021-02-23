@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 export class App extends Component {
   state = {
-    hue: 100,
-    saturation: 30,
-    lightness: 0,
+    hue: Math.floor(Math.random() * 360),
+    saturation: Math.floor(Math.random() * 100),
+    lightness: Math.floor(Math.random() * 100),
   }
   updateHue = event => {
     this.setState({
@@ -21,15 +21,32 @@ export class App extends Component {
       lightness: event.target.value,
     })
   }
+  randomColor = () => {
+    this.setState({
+      hue: Math.floor(Math.random() * 360),
+      saturation: Math.floor(Math.random() * 100),
+      lightness: Math.floor(Math.random() * 100),
+    })
+  }
 
   render() {
     return (
       <body>
         <header>
-          <h1>Color Picker</h1>
+          <h1
+            style={{
+              color: `hsl(${this.state.hue}, ${this.state.saturation}%, ${this.state.lightness}%)`,
+            }}
+          >
+            COLOR PICKER!
+          </h1>
         </header>
         <section>
-          <label>
+          <label
+            style={{
+              color: `hsl(${this.state.hue}, ${this.state.saturation}%, ${this.state.lightness}%)`,
+            }}
+          >
             H: {this.state.hue}
             <input
               type="range"
@@ -38,7 +55,11 @@ export class App extends Component {
               value={this.state.hue}
             />
           </label>
-          <label>
+          <label
+            style={{
+              color: `hsl(${this.state.hue}, ${this.state.saturation}%, ${this.state.lightness}%)`,
+            }}
+          >
             S: {this.state.saturation}%
             <input
               type="range"
@@ -47,7 +68,11 @@ export class App extends Component {
               value={this.state.saturation}
             />
           </label>
-          <label>
+          <label
+            style={{
+              color: `hsl(${this.state.hue}, ${this.state.saturation}%, ${this.state.lightness}%)`,
+            }}
+          >
             L: {this.state.lightness}%
             <input
               type="range"
@@ -56,6 +81,7 @@ export class App extends Component {
               value={this.state.lightness}
             />
           </label>
+          <button onClick={this.randomColor}>Random Color</button>
 
           <canvas
             style={{
