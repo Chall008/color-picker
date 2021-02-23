@@ -10,3 +10,35 @@ body {
   margin: 0;
   min-height: 100%;
 }
+header {
+  display: flex;
+  justify-content: center;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  border: solid;
+}
+canvas {
+  display: flex;
+  border: solid;
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  shape-outside: circle();
+  clip-path: circle();
+}
+// .container {
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+//   justify-content: space-evenly;
+//   border: solid;
+//   border-radius: 50%;
+//   width: 100px;
+//   height: 100px;
+// }
